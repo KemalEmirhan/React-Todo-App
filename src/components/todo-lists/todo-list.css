@@ -1,0 +1,18 @@
+.todo {
+  display: flex;
+  width: 100%;
+}
+
+.todo p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40%;
+  padding: 1rem;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+
+}

@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Form from './components/form/Form';
+import TodoList from './components/todo-lists/todo-list';
+
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      todos: []
+    };
+  }
+  
+  addNewTodo = (todo) => {
+    this.setState(prevState => ({
+      todos: prevState.todos.concat(todo)
+    }));
+    window.location.reload();
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className="app">
+        <header className="header">
+          <h1>Huawei Todo App</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
 
-        <p className="huawei">Huawei Todo App</p>
+        {/* <div className="info-box">
+          <span className="info-box__text">Welcome to Huawei Todo App. Lets make a nice Todo Lists :)</span>
+        </div> */}
+
+        <Form onSubmit={this.addNewTodo} />
+        <h1 className="todolists__header">Todo Lists</h1>
+        
+        <TodoList todos={this.state.todos} />
       </div> 
     );
   }
 }
-
 export default App;
